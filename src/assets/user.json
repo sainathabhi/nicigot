@@ -1,0 +1,10 @@
+[
+	{
+        "StateCode": "",
+        "StateName": "",
+        "UserName": "ADMIN-IGOT",
+        "Password": "Admin@12",
+		"role": "admin",
+		"DefaultState": "Delhi"
+    }
+]

@@ -1,0 +1,92 @@
+
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <a routerLink="/dashboard"><img src="assets/imgs/background/iGOT_Logo.png" style="margin-right: 10%">
+       </a>
+      </div>
+      <div class="dropdown">
+        <span class="dropbtn" style="cursor:pointer; padding: 20px;">iGOT Report</span>
+        <div class="dropdown-content">
+          <a routerLink="/loginReport">Login Report</a>
+          <a routerLink="/UserInvolvedCourse">UserInvolvedCourse Report</a>
+        
+        </div>
+      </div>
+      <div class="search-box" *ngIf="role=='admin' || role=='state'" >
+            <!-- <div class="dropdown" style="padding: 0px 25px">
+              <span class="dropbtn" style="cursor:pointer">Courses</span>
+              <div class="dropdown-content">
+                <a routerLink="/dashboard/batch">Statistics</a>
+                <a routerLink="/dashboard/ProfesionalReport">Summary</a>
+                <a routerLink="/dashboard/CoursesDrillDown">TimeDrillDown Report</a>
+              </div>
+            </div> -->
+
+        <!-- <div class="dropdown">
+          <span class="dropbtn" style="cursor:pointer">Assement</span>
+          <div class="dropdown-content">
+            <a routerLink="#">Assement Report One</a>
+            <a routerLink="#">Assement Report Two</a>
+          </div>
+        </div> -->
+        <!-- <div class="dropdown">
+          <span class="dropbtn" style="cursor:pointer">State</span>
+          <div class="dropdown-content">
+            <a routerLink="/dashboard/Statewisebatch">Batch Report</a>
+            <a routerLink="/dashboard/StatewiseCategory">Category Report</a>
+            <a routerLink="/dashboard/StateDrillDownReport">TimeDrillDown Report</a>
+
+            <a *ngIf="statename!=''" routerLink="/dashboard/StateLeadershipReport">Leadership Report</a>
+          </div>
+        </div> -->
+
+        <div class="dropdown">
+          <span class="dropbtn" style="cursor:pointer; padding: 20px;">iGOT Report</span>
+          <div class="dropdown-content">
+            <a routerLink="/orgReport">Organization Report</a>
+            <a routerLink="/mdoReport">Mdo's Report</a>
+            <a routerLink="/loginReport">Login Report</a>
+          
+          </div>
+        </div>
+          <div class="dropdown" style="padding: 0px 25px">
+              <span class="dropbtn" style="cursor:pointer">Courses</span>
+              <div class="dropdown-content">
+                <a routerLink="/CoursePublished">Course Published Report</a>
+                <a routerLink="/CourseInDraftReport">Course InDraft Report</a>
+              </div>
+            </div> 
+
+
+        <!-- <input type="text" placeholder="Search..."> -->
+        <!-- <i class='bx bx-search' ></i> -->
+      </div>
+
+
+
+
+     
+      <div class="profile-details" >
+      Welcome {{userName}}
+      </div>
+      <input type="hidden" value="{{userName}}" id="storestate">
+      <div class="profile-details" style="padding-left: 125px;">
+
+
+        <div class="dropdown">
+          <span class="dropbtn" style="cursor:pointer;"> <p-avatar icon="pi pi-user" [style]="{'color': '#ffffff'}" shape="circle">
+          </p-avatar></span>
+          <div class="dropdown-content1" style="
+          margin-left: -35px;
+      ">
+            <a routerLink="/dashboard/Profile">Profile</a>
+            <a routerLink="/logout">Logout</a>
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    

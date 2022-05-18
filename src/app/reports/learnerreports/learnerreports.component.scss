@@ -1,0 +1,278 @@
+
+body {
+    margin: 0;
+    clear: both;
+    overflow-x: hidden;
+    background-color: #f6f6f6;
+    font-family: "Lato", sans-serif;
+  }
+  
+  .demo-chart {
+    width: 600px;
+    height: 400px;
+  
+  }
+  .myCSSclass{
+    //background-color:#fde3c1 !important;
+    border:2px solid #5e6485;
+    box-shadow: 0 0 7px 0 #9f9b9b, 0 0 5px 0 #878682, 0 0 0px 0 #b1aeae inset !important;
+  }
+  .graph-border{
+    border: 1px solid #cdc4c4 !important;
+    border-radius: 4px;
+    /* padding: 0px 13px 10px 0px; */
+    width: 100%;
+    /* margin-left: 18px; */
+  }
+  
+  .ui-resizable-column {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 125px;
+  }
+  
+  /* Googlefont Poppins CDN Link */
+  //@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  .row{margin-left:-5px;margin-right:-5px; margin-bottom:10px}
+  .col-sm-6,.col-sm-12,.col{padding-left:5px;padding-right:5px;}
+  .card-header.bg-transparent {
+    border-color: #2d394b;
+    color: #2d394b;
+    font-weight: 600;
+  }
+  
+  .home-section{
+    position: relative;
+    background: #eaf0f7;
+    min-height: 100vh;
+    /* width: calc(100% - 240px); */
+    /* left: 240px; */
+    transition: all 0.5s ease;
+    width: 100%;
+  }
+  
+  
+  .sidebar.active ~ .home-section nav{
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+  .home-section nav .sidebar-button{
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  nav .sidebar-button i{
+    font-size: 35px;
+    margin-right: 10px;
+  }
+  .home-section nav .search-box{
+    position: relative;
+    height: 50px;
+    max-width: 550px;
+    width: 100%;
+    margin: 0 20px;
+    padding-top: 12px;
+  }
+  nav .search-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    background: #F5F6FA;
+    border: 2px solid #EFEEF1;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 0 15px;
+  }
+  nav .search-box .bx-search{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background: #2697FF;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 4px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    font-size: 22px;
+    transition: all 0.4 ease;
+  }
+  .home-section nav .profile-details{
+    align-items: center;
+    min-width: 190px;
+    padding: 0 15px 0 2px;
+  }
+  nav .profile-details img{
+    height: 40px;
+    width: 40px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+  nav .profile-details .admin_name{
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    margin: 0 10px;
+    white-space: nowrap;
+  }
+  nav .profile-details i{
+    font-size: 25px;
+    color: #333;
+  }
+  
+  
+  
+  
+  @media (max-width: 700px) {
+    nav .sidebar-button .dashboard,
+    nav .profile-details .admin_name,
+    nav .profile-details i{
+      display: none;
+    }
+    .home-section nav .profile-details{
+      height: 50px;
+      min-width: 40px;
+    }
+    .home-content .sales-boxes .sales-details{
+      width: 560px;
+    }
+  }
+  
+  
+  .column {
+    display: inline-block;
+    width: 50%;
+  }
+  
+  
+  .search-boxx{
+    width: 291px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid #afaaaaf2;
+  }
+  table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  }
+  
+  td, th {
+  border: 1px solid #beb9b9f2 !important;
+  text-align: left;
+  padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+  background-color: #f8fcff;
+  }
+  
+  
+  
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 192px;
+    box-shadow: 0px 8px 16px 0px #7a7979d6;
+    z-index: 1;
+  
+  }
+  .dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 92px;
+    box-shadow: 0px 8px 16px 0px #7a7979d6;
+    z-index: 1;
+  
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid rgba(56, 55, 55, 0.842);
+  }
+  .dropdown-content1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid rgba(56, 55, 55, 0.842);
+  }
+  
+  .dropdown-content a:hover {background-color: rgb(252, 248, 248);}
+  
+  .dropdown-content1 a:hover {background-color: rgb(252, 248, 248);}
+  .dropdown:hover .dropdown-content {display: block;}
+  .dropdown:hover .dropdown-content1 {display: block;}
+  a{
+    color:white
+  }
+  a:hover {
+    border: 0;
+    outline: 0;
+    color:white;
+  }
+  
+  .btn{background-color:goldenrod;padding:2px 5px;cursor:pointer;color:#ffffff;display:inline-block;margin-right:5px;margin-bottom:5px;}
+  /*.text-center{margin:auto;width:600px;}*/
+   /* The Modal (background) */
+   .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 35px; /* Location of the box */
+    left: 0;
+    top: 0;
+   // width: 98%; /* Full width */
+   // height: 98%; /* Full height */
+   // overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 95%;
+    height: 95%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    margin-left: 98%;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  :host ::ng-deep {
+    #myTable {
+      .p-datatable-header {
+        background: #e5f4fe!important;
+        border: 1px solid #a4b7f9  !important;
+      }
+    }
+  }
+  

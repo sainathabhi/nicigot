@@ -1,0 +1,539 @@
+<body>
+  <app-header></app-header>
+  <section class="home-section">
+    
+    <div class="container" style=" max-width: 1339px; padding: 27px 16px;">
+     
+      <div *ngIf="adminRole=='present'">
+        <div class = "row">
+          <div class="col-sm-3"> <div class="card" >
+            <div class="card-header " style="padding: 15px;border-color: tomato;">
+             <h5 style="font-weight: normal;">TOTAL ORGANIZATIONS </h5> 
+            </div>
+            <div class="card-content">
+              <a routerLink="/orgReport" style="color: black;width: 247px;">
+                 <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h3 class="danger fontstyle"> {{allOrgLength}}</h3>
+                   
+                  </div>
+                  <div class="align-self-center">
+                    <img src="assets/imgs/background/organization.png" style="height: 67px;">
+                  </div>
+                </div>
+                <div class="progress mt-1 mb-0" style="height: 7px;">
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div></a>
+            </div>
+          </div></div>
+          <div class = "col-sm-3"> <div class="card" >
+            <div class="card-header " style="padding: 15px;border-color: mediumseagreen;">
+               <h5 style="font-weight: normal;">TOTAL MDOS</h5> 
+            </div>
+            <div class="card-content">
+              <a routerLink="/mdoReport" style="color: black;width: 247px;">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h3 class="success  fontstyle">{{mdoAdminListLength}}</h3>
+                  
+                  </div>
+                  <div class="align-self-center">
+                    <img src="assets/imgs/background/Students.png" style="
+                    height: 67px;
+                ">
+                  </div>
+                </div>
+                <div class="progress mt-1 mb-0" style="height: 7px;">
+                  <div class="progress-bar  bg-success" role="progressbar" style="width: 100%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div></a>
+            </div>
+          </div></div>
+          <div class = "col-sm-3"> <div class="card" >
+            <div class="card-header " style="padding: 15px;border-color: orange;">
+                <h5 style="font-weight: normal;">TOTAL LEARNERS</h5> 
+            </div>
+            <div class="card-content">
+              <a routerLink="/LearnerReport" style="color: black;width: 247px;">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h3 class="warning fontstyle"> {{learnerUserLength}}</h3>
+                   
+                  </div>
+                  <div class="align-self-center">
+                    <img src="assets/imgs/background/unique-user12.png" style="
+                                  height: 67px;
+                              ">
+                  </div>
+                </div>
+                <div class="progress mt-1 mb-0" style="height: 7px;">
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div></a>
+            </div>
+          </div></div>
+
+
+          <div class = "col-sm-3"> <div class="card" >
+            <div class="card-header " style="padding: 15px;border-color: #7b68eecc;">
+                <h5 style="font-weight: normal;">TOTAL COURSE PUBLISHED</h5> 
+            </div>
+            <div class="card-content">
+              <a routerLink="/CoursePublished" style="color: black;width: 247px;">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h3 class="fontstyle" style="color: #7b68eecc;"> {{allcoursePublishedDataLength}}</h3>
+                   
+                  </div>
+                  <div class="align-self-center">
+                    <img src="assets/imgs/background/coursepublished.png" style="
+                                  height: 67px;
+                              ">
+                  </div>
+                </div>
+                <div class="progress mt-1 mb-0" style="height: 7px;">
+                  <div class="progress-bar " role="progressbar" style="width: 100%; background-color: #7b68eecc;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div></a>
+            </div>
+          </div></div>
+          </div>
+      <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <h5 class="card-header" style="border-color: skyblue;background-color: #2db8f10f;">YEAR WISE USER  ENROLMENT  GRAPH 
+                </h5>
+               
+
+              <div class="card-body">
+                  <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseEnrolementChart}"
+                  [options]="dateWiseEnrolementChart" (chartClick)="onYearChartClick($event)"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+                <h5 class="card-header" style="border-color: skyblue;background-color: #2db8f10f;">YEAR WISE ORGANIZATION ENROLMENT GRAPH 
+                </h5>
+               
+
+              <div class="card-body">
+                  <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseOrgEnrolementChart}"
+                  [options]="dateWiseOrgEnrolementChart" (chartClick)="onYearChartClick($event)"></div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-sm-6">
+            <div class="card">
+                <h5 class="card-header" style="border-color: skyblue;background-color: #2db8f10f;padding: 16px;">MONTH WISE USER  ENROLMENT  GRAPH
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p-dropdown [options]="countries" [(ngModel)]="selectedStateBatch" (onChange)="OnChangeState($event)" optionLabel="name" [filter]="true" filterBy="name"
+                  [showClear]="false" placeholder="Please Select Year">
+                  <ng-template pTemplate="selectedItem">
+                    <div class="country-item country-item-value" *ngIf="selectedStateBatch">
+                      <div>{{selectedStateBatch.name}}</div>
+                    </div>
+                  </ng-template>
+                  <ng-template let-usertype pTemplate="item">
+                    <div class="country-item">
+                      <div>{{usertype.name}}</div>
+                    </div>
+                  </ng-template>
+                </p-dropdown>
+              
+              </h5>
+
+              <div class="card-body">
+                  <div echarts class="demo-chart" [ngClass]="{'graph-border' : monthWiseEnrolementChart}"
+                  [options]="monthWiseEnrolementChart"></div>
+              </div>
+            </div>
+          </div> -->
+      
+
+      </div>
+
+
+
+
+      <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <h5 class="card-header" style="border-color: skyblue;background-color: #2db8f10f;">YEAR WISE MDO ENROLMENT GRAPH 
+                </h5>
+               
+
+              <div class="card-body">
+                  <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseMdoEnrolementChart}"
+                  [options]="dateWiseMdoEnrolementChart" (chartClick)="onYearChartClick($event)"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+                <h5 class="card-header" style="border-color: skyblue;background-color: #2db8f10f;">YEAR WISE LEARNER ENROLMENT GRAPH 
+                </h5>
+               
+
+              <div class="card-body">
+                  <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseLearnersEnrolementChart}"
+                  [options]="dateWiseLearnersEnrolementChart" (chartClick)="onYearChartClick($event)"></div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+
+        <!-- <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-body">
+
+                      <span>BATCH STATISTICS-LAST </span><small (click)="datecalculation('seven')" class="btn"> 7 days</small><small class="btn" (click)="datecalculation('fiftin')"> 15  days</small>
+                      <small class="btn" (click)="datecalculation('thiirty')"> 30  days</small>
+                  </div>
+                </div>
+              </div>
+        </div> -->
+
+        <!-- <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <h5 class="card-header">COURSE  ENROLMENT  GRAPH</h5>
+
+                  <div class="card-body">
+                      <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseEnrolementChart}"
+                      [options]="dateWiseEnrolementChart"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                  <div class="card">
+                      <h5 class="card-header">COURSE COMPLETION  GRAPH</h5>
+
+                    <div class="card-body">
+                        <div echarts class="demo-chart" [ngClass]="{'graph-border' : complinceCertificateChart}"
+                        [options]="complinceCertificateChart"></div>
+                    </div>
+                  </div>
+                </div>
+
+          </div> -->
+
+
+
+          <!-- <div class="row">
+
+
+              <div class="col-sm-6">
+                  <div class="card">
+                      <h5 class="card-header">COURSE CERTIFICATE ISSUED  GRAPH</h5>
+
+                    <div class="card-body">
+                        <div echarts class="demo-chart" [ngClass]="{'graph-border' : enrolementCertificateChart}"
+                        [options]="enrolementCertificateChart"></div>
+                    </div>
+                  </div>
+                </div>
+
+
+            </div> -->
+
+          </div>
+
+
+
+
+          <div *ngIf="adminRole=='notpresent'">
+            <div class = "row">
+              <div class="col-sm-4"> <div class="card" >
+                <div class="card-header " style="padding: 15px;border-color: tomato;">
+                 <h5 style="font-weight: normal;">TOTAL ORGANIZATIONS </h5> 
+                </div>
+                <div class="card-content">
+                  <a routerLink="/orgReport" style="color: black;width: 247px;">
+                     <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="media-body text-left">
+                        <h3 class="danger fontstyle"> {{allOrgLength}}</h3>
+                       
+                      </div>
+                      <div class="align-self-center">
+                        <img src="assets/imgs/background/organization.png" style="height: 67px;">
+                      </div>
+                    </div>
+                    <div class="progress mt-1 mb-0" style="height: 7px;">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div></a>
+                </div>
+              </div></div>
+              <div class = "col-sm-4"> <div class="card" >
+                <div class="card-header " style="padding: 15px;border-color: mediumseagreen;">
+                   <h5 style="font-weight: normal;">TOTAL MDOS</h5> 
+                </div>
+                <div class="card-content">
+                  <a routerLink="/mdoReport" style="color: black;width: 247px;">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="media-body text-left">
+                        <h3 class="success  fontstyle">{{mdoAdminListLength}}</h3>
+                      
+                      </div>
+                      <div class="align-self-center">
+                        <img src="assets/imgs/background/Students.png" style="
+                        height: 67px;
+                    ">
+                      </div>
+                    </div>
+                    <div class="progress mt-1 mb-0" style="height: 7px;">
+                      <div class="progress-bar  bg-success" role="progressbar" style="width: 100%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div></a>
+                </div>
+              </div></div>
+              <div class = "col-sm-4"> <div class="card" >
+                <div class="card-header " style="padding: 15px;border-color: orange;">
+                    <h5 style="font-weight: normal;">TOTAL LEARNERS</h5> 
+                </div>
+                <div class="card-content">
+                  <a routerLink="/LearnerReport" style="color: black;width: 247px;">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="media-body text-left">
+                        <h3 class="warning fontstyle"> {{learnerUserLength}}</h3>
+                       
+                      </div>
+                      <div class="align-self-center">
+                        <img src="assets/imgs/background/unique-user12.png" style="
+                                      height: 67px;
+                                  ">
+                      </div>
+                    </div>
+                    <div class="progress mt-1 mb-0" style="height: 7px;">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div></a>
+                </div>
+              </div></div>
+    
+    
+              <!-- <div class = "col-sm-3"> <div class="card" >
+                <div class="card-header " style="padding: 15px;border-color: #7b68eecc;">
+                    <h5 style="font-weight: normal;">TOTAL COURSE PUBLISHED</h5> 
+                </div>
+                <div class="card-content">
+                  <a routerLink="/CoursePublished" style="color: black;width: 247px;">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="media-body text-left">
+                        <h3 class="fontstyle" style="color: #7b68eecc;"> {{allcoursePublishedDataLength}}</h3>
+                       
+                      </div>
+                      <div class="align-self-center">
+                        <img src="assets/imgs/background/coursepublished.png" style="
+                                      height: 67px;
+                                  ">
+                      </div>
+                    </div>
+                    <div class="progress mt-1 mb-0" style="height: 7px;">
+                      <div class="progress-bar " role="progressbar" style="width: 100%; background-color: #7b68eecc;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div></a>
+                </div>
+              </div></div> -->
+              </div>
+          <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <h5 class="card-header" style="border-color: skyblue;background-color: #2db8f10f;">YEAR WISE USER  ENROLMENT  GRAPH 
+                    </h5>
+                   
+    
+                  <div class="card-body">
+                      <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseEnrolementChart}"
+                      [options]="dateWiseEnrolementChart" (chartClick)="onYearChartClick($event)"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                    <h5 class="card-header" style="border-color: skyblue;background-color: #2db8f10f;">YEAR WISE ORGANIZATION ENROLMENT GRAPH 
+                    </h5>
+                   
+    
+                  <div class="card-body">
+                      <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseOrgEnrolementChart}"
+                      [options]="dateWiseOrgEnrolementChart" (chartClick)="onYearChartClick($event)"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-sm-6">
+                <div class="card">
+                    <h5 class="card-header" style="border-color: skyblue;background-color: #2db8f10f;padding: 16px;">MONTH WISE USER  ENROLMENT  GRAPH
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p-dropdown [options]="countries" [(ngModel)]="selectedStateBatch" (onChange)="OnChangeState($event)" optionLabel="name" [filter]="true" filterBy="name"
+                      [showClear]="false" placeholder="Please Select Year">
+                      <ng-template pTemplate="selectedItem">
+                        <div class="country-item country-item-value" *ngIf="selectedStateBatch">
+                          <div>{{selectedStateBatch.name}}</div>
+                        </div>
+                      </ng-template>
+                      <ng-template let-usertype pTemplate="item">
+                        <div class="country-item">
+                          <div>{{usertype.name}}</div>
+                        </div>
+                      </ng-template>
+                    </p-dropdown>
+                  
+                  </h5>
+    
+                  <div class="card-body">
+                      <div echarts class="demo-chart" [ngClass]="{'graph-border' : monthWiseEnrolementChart}"
+                      [options]="monthWiseEnrolementChart"></div>
+                  </div>
+                </div>
+              </div> -->
+          
+    
+          </div>
+    
+    
+    
+    
+          <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <h5 class="card-header" style="border-color: skyblue;background-color: #2db8f10f;">YEAR WISE MDO ENROLMENT GRAPH 
+                    </h5>
+                   
+    
+                  <div class="card-body">
+                      <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseMdoEnrolementChart}"
+                      [options]="dateWiseMdoEnrolementChart" (chartClick)="onYearChartClick($event)"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                    <h5 class="card-header" style="border-color: skyblue;background-color: #2db8f10f;">YEAR WISE LEARNER ENROLMENT GRAPH 
+                    </h5>
+                   
+    
+                  <div class="card-body">
+                      <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseLearnersEnrolementChart}"
+                      [options]="dateWiseLearnersEnrolementChart" (chartClick)="onYearChartClick($event)"></div>
+                  </div>
+                </div>
+              </div>
+          </div>
+    
+    
+    
+            <!-- <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                      <div class="card-body">
+    
+                          <span>BATCH STATISTICS-LAST </span><small (click)="datecalculation('seven')" class="btn"> 7 days</small><small class="btn" (click)="datecalculation('fiftin')"> 15  days</small>
+                          <small class="btn" (click)="datecalculation('thiirty')"> 30  days</small>
+                      </div>
+                    </div>
+                  </div>
+            </div> -->
+    
+            <!-- <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <h5 class="card-header">COURSE  ENROLMENT  GRAPH</h5>
+    
+                      <div class="card-body">
+                          <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseEnrolementChart}"
+                          [options]="dateWiseEnrolementChart"></div>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="col-sm-6">
+                      <div class="card">
+                          <h5 class="card-header">COURSE COMPLETION  GRAPH</h5>
+    
+                        <div class="card-body">
+                            <div echarts class="demo-chart" [ngClass]="{'graph-border' : complinceCertificateChart}"
+                            [options]="complinceCertificateChart"></div>
+                        </div>
+                      </div>
+                    </div>
+    
+              </div> -->
+    
+    
+    
+              <!-- <div class="row">
+    
+    
+                  <div class="col-sm-6">
+                      <div class="card">
+                          <h5 class="card-header">COURSE CERTIFICATE ISSUED  GRAPH</h5>
+    
+                        <div class="card-body">
+                            <div echarts class="demo-chart" [ngClass]="{'graph-border' : enrolementCertificateChart}"
+                            [options]="enrolementCertificateChart"></div>
+                        </div>
+                      </div>
+                    </div>
+    
+    
+                </div> -->
+    
+              </div>
+
+
+  </div>
+  </section>
+ 
+  <div id="myModal1" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeModal('myModal1')" >&times;</span>
+      <p style="float:center">YEAR WISE USER ENROLEMENT GRAPH</p>
+      <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseEnrolementChart}"
+      [options]="dateWiseEnrolementChart" (chartClick)="onYearChartClick($event)"></div>
+    </div>
+  </div>
+
+  <div id="myModal2" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeModal('myModal2')" >&times;</span>
+      <p style="float:center">YEAR WISE ORGANIZATION ENROLMENT GRAPH </p>
+      <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseOrgEnrolementChart}"
+                  [options]="dateWiseOrgEnrolementChart"></div>
+    </div>
+  </div>
+
+  <div id="myModal3" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeModal('myModal3')" >&times;</span>
+      <p style="float:center">YEAR WISE MDO ENROLMENT GRAPH</p>
+      <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseMdoEnrolementChart}"
+                  [options]="dateWiseMdoEnrolementChart"></div>
+    </div>
+  </div>
+  <div id="myModal4" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeModal('myModal4')" >&times;</span>
+      <p style="float:center">YEAR WISE LEARNER ENROLMENT GRAPH</p>
+      <div echarts class="demo-chart" [ngClass]="{'graph-border' : dateWiseLearnersEnrolementChart}"
+                  [options]="dateWiseLearnersEnrolementChart"></div>
+    </div>
+  </div>
+</body>
+

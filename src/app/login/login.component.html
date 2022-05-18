@@ -1,0 +1,70 @@
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <!-- The image half -->
+  
+  
+  
+    <!-- The content half -->
+    <div class="col-md-6 " style="background: #bbdafe7d;">
+      <div class="login d-flex align-items-center ">
+  
+          <!-- Demo content-->
+          <div class="container">
+              <div class="row">
+  
+                <p class=" mb-4 "style="font-family: auto;margin-left: 65px;font-size: xx-large;"> WELCOME TO IGOT DASHBOARD</p>
+                  <div class="col-lg-10 col-xl-7 mx-auto">  <img src="assets/imgs/background/Layer23.png" style="
+                    width: 435px; margin-left: -88px;
+                " >
+  
+  
+                  </div>
+              </div>
+          </div><!-- End -->
+  
+      </div>
+  </div><!-- End -->
+  
+  
+  
+        <!-- The content half -->
+        <div class="col-md-6 " style="background: #bbdafe7d;">
+            <div class="login d-flex align-items-center">
+  
+                <!-- Demo content-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-7 mx-auto">
+                            <h3 class="display-4">Login</h3>
+  
+                            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                <div class="form-group mb-3">
+                                  <div style="font-size: 80%;
+                                  color: #dc3545; margin-bottom: 5px;" >{{credentialdata}} </div>
+                                    <input id="inputUsename" type="text" formControlName="usename"  [ngClass]="{ 'is-invalid': submitted && f.usename.errors }" placeholder="Usename " required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    <div *ngIf="submitted && f.usename.errors" class="invalid-feedback">
+                                        <div *ngIf="f.usename.errors.required">usename is required</div>
+                                        <div *ngIf="f.usename.errors.email">usename must be a valid </div>
+  
+                                     </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input id="inputPassword" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">Password is required</div>
+                                     </div>
+                                </div>
+  
+                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Login</button>
+                                <div class="text-center d-flex justify-content-between mt-4"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div><!-- End -->
+  
+            </div>
+        </div><!-- End -->
+  
+    </div>
+  </div>
+  
